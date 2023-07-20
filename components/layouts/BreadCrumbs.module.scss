@@ -1,0 +1,43 @@
+.breadCrumbsSection {
+  background-color: #f0f0f0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.breadCrumbsList {
+  display: inline-flex;
+  flex-wrap: wrap;
+  color: #666;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+
+.breadCrumb {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.breadCrumbLink {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.breadCrumbLink:hover {
+  color: #0066cc;
+}
+
+.breadCrumbIcon {
+  margin-left: 0.75rem;
+  color: #999;
+}
