@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import Order from "../models/order";
 import APIFilters from "../utils/APIFilters";
 import ErrorHandler from "../utils/errorHandler";
+
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY);
 
 export const getOrders = async (req, res) => {
@@ -115,7 +116,7 @@ export const checkoutSession = async (req, res) => {
         },
         unit_amount: item.price * 100,
       },
-      tax_rates: ["txr_1MUVJSAlHMiRMt8E2khIxJEi"],
+      tax_rates: ["txr_1NXJ2qJwylg21cQ33eSEMaoy"],
       quantity: item.quantity,
     };
   });
@@ -132,7 +133,7 @@ export const checkoutSession = async (req, res) => {
     metadata: { shippingInfo },
     shipping_options: [
       {
-        shipping_rate: "shr_1MUVKxAlHMiRMt8EmUp4SKxz",
+        shipping_rate: "shr_1NXIwQJwylg21cQ3Q60lJho6",
       },
     ],
     line_items,

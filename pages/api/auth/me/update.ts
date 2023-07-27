@@ -16,7 +16,6 @@ export const config = {
 };
 
 const uploadMiddleware = upload.array("image");
-console.log('uploadMiddleware',uploadMiddleware)
 
 handler.use(isAuthenticatedUser, uploadMiddleware).put(updateProfile);
 

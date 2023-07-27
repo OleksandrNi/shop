@@ -1,9 +1,10 @@
 "use client";
 
-import OrderContext from "@/context/OrderContext";
-import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import OrderContext from "@/context/OrderContext";
+import Image from "next/image";
+import styles from "./UpdateOrder.module.scss"; 
 
 const UpdateOrder = ({ order }) => {
   const { updateOrder, error, clearErrors, updated, setUpdated } =
@@ -25,41 +26,40 @@ const UpdateOrder = ({ order }) => {
 
   const submitHandler = () => {
     const orderData = { orderStatus };
-
     updateOrder(order?._id, orderData);
   };
 
   return (
-    <article className="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
-      <header className="lg:flex justify-between mb-4">
+    <article className={styles.articleContainer}>
+      <header className={styles.headerContainer}>
         <div className="mb-4 lg:mb-0">
-          <p className="font-semibold">
+          <p className={styles.headerText}>
             <span>Order ID: {order?._id} </span>
-            {order?.orderStatus == "Processing" ? (
-              <span className="text-red-500">
+            {order?.orderStatus === "Processing" ? (
+              <span className={`${styles.orderStatus} ${styles.orderStatusRed}`}>
                 • {order?.orderStatus.toUpperCase()}
               </span>
             ) : (
-              <span className="text-green-500">
+              <span className={`${styles.orderStatus} ${styles.orderStatusGreen}`}>
                 • {order?.orderStatus.toUpperCase()}
               </span>
             )}
           </p>
-          <p className="text-gray-500">{order?.createAt?.substring(0, 10)} </p>
+          <p className={styles.dateText}>{order?.createAt?.substring(0, 10)}</p>
         </div>
       </header>
-      <div className="grid md:grid-cols-3 gap-2">
+      <div className={styles.gridContainer}>
         <div>
-          <p className="text-gray-400 mb-1">Person</p>
-          <ul className="text-gray-600">
+          <p className={styles.listItem}>Person</p>
+          <ul className={styles.listItem}>
             <li>{order?.user?.name}</li>
             <li>Phone: {order?.shippingInfo?.phoneNo}</li>
             <li>Email: {order?.user?.email}</li>
           </ul>
         </div>
         <div>
-          <p className="text-gray-400 mb-1">Delivery address</p>
-          <ul className="text-gray-600">
+          <p className={styles.listItem}>Delivery address</p>
+          <ul className={styles.listItem}>
             <li>{order?.shippingInfo?.street}</li>
             <li>
               {order?.shippingInfo?.city}, {order?.shippingInfo?.state},{" "}
@@ -69,9 +69,9 @@ const UpdateOrder = ({ order }) => {
           </ul>
         </div>
         <div>
-          <p className="text-gray-400 mb-1">Payment</p>
-          <ul className="text-gray-600">
-            <li className="text-green-400">
+          <p className={styles.listItem}>Payment</p>
+          <ul className={styles.listItem}>
+            <li className={styles.listItemGreen}>
               {order?.paymentInfo?.status?.toUpperCase()}
             </li>
             <li>Tax paid: ${order?.paymentInfo?.taxPaid}</li>
@@ -79,39 +79,28 @@ const UpdateOrder = ({ order }) => {
           </ul>
         </div>
       </div>
-
-      <hr className="my-4" />
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <hr className={styles.my-4} />
+      <div className={styles.gridContainer}>
         {order?.orderItems?.map((item) => (
-          <figure className="flex flex-row mb-4">
-            <div>
-              <div className="block w-20 h-20 rounded border border-gray-200 overflow-hidden p-3">
-                <Image
-                  src={item?.image}
-                  height="60"
-                  width="60"
-                  alt={item.name}
-                />
-              </div>
+          <figure className="flex flex-row mb-4" key={item._id}>
+            <div className={styles.imageContainer}>
+              <Image src={item?.image} height="60" width="60" alt={item.name} />
             </div>
             <figcaption className="ml-3">
               <p>{item.name.substring(0, 35)}</p>
-              <p className="mt-1 font-semibold">
+              <p className={styles.listItem}>
                 {item.quantity}x = ${item.price * item.quantity}
               </p>
             </figcaption>
           </figure>
         ))}
       </div>
-
       <hr />
-
-      <div class="my-8">
-        <label class="block mb-3"> Update Order Status </label>
-        <div class="relative">
+      <div className={styles.selectContainer}>
+        <label className={styles.selectLabel}>Update Order Status</label>
+        <div className={styles.selectField}>
           <select
-            class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+            className={styles.selectBox}
             name="category"
             value={orderStatus}
             onChange={(e) => setOrderStatus(e.target.value)}
@@ -123,22 +112,16 @@ const UpdateOrder = ({ order }) => {
               </option>
             ))}
           </select>
-          <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-            <svg
-              width="22"
-              height="22"
-              class="fill-current"
-              viewBox="0 0 20 20"
-            >
+          <i className={styles.selectIcon}>
+            <svg width="22" height="22" className={styles.fillCurrent} viewBox="0 0 20 20">
               <path d="M7 10l5 5 5-5H7z"></path>
             </svg>
           </i>
         </div>
       </div>
-
       <button
         type="submit"
-        className="mb-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+        className={styles.updateButton}
         onClick={() => submitHandler()}
       >
         Update
@@ -148,3 +131,4 @@ const UpdateOrder = ({ order }) => {
 };
 
 export default UpdateOrder;
+

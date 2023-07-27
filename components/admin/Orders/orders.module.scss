@@ -1,0 +1,57 @@
+.ordersContainer {
+  /* Your container styles here */
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ordersTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ordersHeader {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #4a5568;
+  background-color: #f7fafc;
+}
+
+.ordersColumn {
+  padding: 0.75rem 1rem;
+}
+
+.ordersRow {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ordersCell {
+  padding: 0.75rem 1rem;
+}
+
+.ordersActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ordersActionBtn {
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.ordersPagination {
+  margin-top: 1rem;
+}

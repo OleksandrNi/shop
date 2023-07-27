@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const loadUser = async () => {
+  const loadUser = async (link) => {
     try {
       setLoading(true);
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
       if (data?.user) {
         setUser(data.user);
-        router.replace("/me");
+        router.replace(link);
       }
     } catch (error) {
       setError(error?.response?.data?.message);
@@ -63,7 +63,7 @@ export const AuthProvider = ({ children }) => {
       );
 
       if (data?.user) {
-        loadUser();
+        loadUser('/me');
         setLoading(false);
       }
     } catch (error) {
@@ -102,7 +102,8 @@ export const AuthProvider = ({ children }) => {
 
       if (data?.success) {
         setUpdated(true);
-        router.replace(`/admin/users/${id}`);
+        loadUser(`/admin/users/${id}`);
+        setLoading(false);
       }
     } catch (error) {
       setError(error?.response?.data?.message);
