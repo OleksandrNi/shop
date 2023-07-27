@@ -1,0 +1,61 @@
+.productsContainer {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productsTitle {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.productsHeader {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #4a5568;
+  background-color: #f7fafc;
+}
+
+.productsColumn {
+  padding: 0.75rem 1rem;
+}
+
+.productsRow {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.productsCell {
+  text-align: center;
+  padding: 0.75rem 1rem;
+}
+
+.productsActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productsActionBtn {
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  color: #4a5568;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.productsPagination {
+  margin-top: 1rem;
+}

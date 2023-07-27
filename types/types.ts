@@ -5,3 +5,10 @@ export enum ProductCategory {
   CategoryFour = "Category 4",
   CategoryFive = "Category 5",
 }
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+}

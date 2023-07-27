@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import React, { useContext, useEffect } from "react";
-import CustomPagination from "../layouts/CustomPagination";
+import CustomPagination from "../../layouts/CustomPagination";
 import OrderContext from "@/context/OrderContext";
+import styles from "./orders.module.scss"; // Import the module CSS file
 
 const Orders = ({ orders }) => {
   const { deleteOrder, error, clearErrors } = useContext(OrderContext);
@@ -18,44 +19,45 @@ const Orders = ({ orders }) => {
   const deleteHandler = (id) => {
     deleteOrder(id);
   };
+
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <h1 className="text-3xl my-5 ml-4 font-bold">
+    <div className={styles.ordersContainer}>
+      <h1 className={styles.ordersTitle}>
         {orders?.ordersCount} Orders
       </h1>
-      <table className="w-full text-sm text-left">
-        <thead className="text-l text-gray-700 uppercase">
+      <table className={styles.ordersTable}>
+        <thead className={styles.ordersHeader}>
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className={styles.ordersColumn}>
               ID
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className={styles.ordersColumn}>
               Amount Paid
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className={styles.ordersColumn}>
               Status
             </th>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className={styles.ordersColumn}>
               Actions
             </th>
           </tr>
         </thead>
         <tbody>
           {orders?.orders?.map((order) => (
-            <tr className="bg-white">
-              <td className="px-6 py-2">{order?._id}</td>
-              <td className="px-6 py-2">${order?.paymentInfo?.amountPaid}</td>
-              <td className="px-6 py-2">{order?.orderStatus}</td>
-              <td className="px-6 py-2">
-                <div>
+            <tr className={styles.ordersRow} key={order?._id}>
+              <td className={styles.ordersCell}>{order?._id}</td>
+              <td className={styles.ordersCell}>${order?.paymentInfo?.amountPaid}</td>
+              <td className={styles.ordersCell}>{order?.orderStatus}</td>
+              <td className={styles.ordersCell}>
+                <div className={styles.ordersActions}>
                   <Link
                     href={`/admin/orders/${order?._id}`}
-                    className="px-2 py-2 inline-block text-yellow-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer mr-2"
+                    className={styles.ordersActionBtn}
                   >
                     <i className="fa fa-pencil" aria-hidden="true"></i>
                   </Link>
                   <a
-                    className="px-2 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 cursor-pointer"
+                    className={styles.ordersActionBtn}
                     onClick={() => deleteHandler(order?._id)}
                   >
                     <i className="fa fa-trash" aria-hidden="true"></i>
@@ -67,7 +69,7 @@ const Orders = ({ orders }) => {
         </tbody>
       </table>
 
-      <div className="mb-6">
+      <div className={styles.ordersPagination}>
         <CustomPagination
           resPerPage={orders?.resPerPage}
           productsCount={orders?.ordersCount}

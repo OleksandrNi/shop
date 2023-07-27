@@ -1,0 +1,90 @@
+.container {
+  max-width: 600px;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 2rem;
+}
+
+.inputContainer {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  appearance: none;
+  border: 1px solid #cbd5e0;
+  background-color: #f7fafc;
+  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  width: 100%;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4fd1c5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.select {
+  appearance: none;
+  border: 1px solid #cbd5e0;
+  background-color: #f7fafc;
+  border-radius: 0.25rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  width: 100%;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #4fd1c5;
+}
+
+.selectIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.25rem;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.selectIconSvg {
+  fill: currentColor;
+  width: 1rem;
+  height: 1rem;
+}
+
+.button {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  color: #fff;
+  background-color: #3182ce;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #2c5282;
+}
