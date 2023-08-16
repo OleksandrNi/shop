@@ -1,4 +1,3 @@
-// UploadImages.tsx
 "use client";
 
 import ProductContext from "@/context/ProductContext";
