@@ -22,9 +22,7 @@ const Orders = ({ orders }) => {
 
   return (
     <div className={styles.ordersContainer}>
-      <h1 className={styles.ordersTitle}>
-        {orders?.ordersCount} Orders
-      </h1>
+      <h1 className={styles.ordersTitle}>{orders?.ordersCount} Orders</h1>
       <table className={styles.ordersTable}>
         <thead className={styles.ordersHeader}>
           <tr>
@@ -46,7 +44,9 @@ const Orders = ({ orders }) => {
           {orders?.orders?.map((order) => (
             <tr className={styles.ordersRow} key={order?._id}>
               <td className={styles.ordersCell}>{order?._id}</td>
-              <td className={styles.ordersCell}>${order?.paymentInfo?.amountPaid}</td>
+              <td className={styles.ordersCell}>
+                ${order?.paymentInfo?.amountPaid}
+              </td>
               <td className={styles.ordersCell}>{order?.orderStatus}</td>
               <td className={styles.ordersCell}>
                 <div className={styles.ordersActions}>

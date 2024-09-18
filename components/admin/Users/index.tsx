@@ -6,7 +6,7 @@ import React, { useContext, useEffect } from "react";
 import CustomPagination from "../../layouts/CustomPagination";
 import AuthContext from "@/context/AuthContext";
 import { toast } from "react-toastify";
-import styles from "./users.module.scss";
+import styles from "./Users.module.scss";
 import { User } from "@/types/types";
 
 interface UsersProps {

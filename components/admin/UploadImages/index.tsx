@@ -4,7 +4,7 @@ import ProductContext from "@/context/ProductContext";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import styles from "./uploadImages.module.scss";
+import styles from "./UploadImages.module.scss";
 
 interface UploadImagesProps {
   id: string; // Change the type of 'id' prop accordingly
